@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Message</title>
+</head>
+<body>
+    <script>
+    function getMessage(name) {
+        return `안녕하세요, ${name}...<br>`;
+    }
+
+    const message = getMessage('교수님');
+    document.write(message);
+
+    function messageOne() {
+        document.write("안녕하세요.<br>");
+    }
+
+    function messageTwo() {
+        document.write("현재 강의 실습 중입니다<br>");
+    }
+
+    function messageThree() {
+        document.write("감사합니다.<br>");
+    }
+
+    let step = 0;
+    const inter = setInterval(() => {
+        if (step === 0) {
+            messageOne();
+        } else if (step === 1) {
+            messageTwo();
+        } else if (step === 2) {
+            messageThree();
+            clearInterval(inter);
+        }
+        step++;
+    }, 3000);
+    </script>
+</body>
+</html>
