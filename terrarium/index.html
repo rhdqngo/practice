@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="./style.css" />
+        <title>Welcome to my Virtual Terrarium</title>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+    </head>
+    <body>
+        <h1>My Terrarium</h1>
+        <div id="page">
+            <div id="left-container" class="container">
+                <div class="plant-holder">
+                    <img class="plant" alt="plant" id="plant1" src="./images/plant1.png" />
+                </div>
+                <div class="plant-holder">
+                    <img class="plant" alt="plant" id="plant2" src="./images/plant2.png" />
+                </div>
+                <div class="plant-holder">
+                    <img class="plant" alt="plant" id="plant3" src="./images/plant3.png" />
+                </div>
+                <div class="plant-holder">
+                    <img class="plant" alt="plant" id="plant4" src="./images/plant4.png" />
+                </div>
+                <div class="plant-holder">
+                    <img class="plant" alt="plant" id="plant5" src="./images/plant5.png" />
+                </div>
+                <div class="plant-holder">
+                    <img class="plant" alt="plant" id="plant6" src="./images/plant6.png" />
+                </div>
+                <div class="plant-holder">
+                    <img class="plant" alt="plant" id="plant7" src="./images/plant7.png" />
+                </div>
+            </div>
+            <div id="right-container" class="container">
+                <div class="plant-holder">
+                    <img class="plant" alt="plant" id="plant8" src="./images/plant8.png" />
+                </div>
+                <div class="plant-holder">
+                    <img class="plant" alt="plant" id="plant9" src="./images/plant9.png" />
+                </div>
+                <div class="plant-holder">
+                    <img class="plant" alt="plant" id="plant10" src="./images/plant10.png" />
+                </div>
+                <div class="plant-holder">
+                    <img class="plant" alt="plant" id="plant11" src="./images/plant11.png" />
+                </div>
+                <div class="plant-holder">
+                    <img class="plant" alt="plant" id="plant12" src="./images/plant12.png" />
+                </div>
+                <div class="plant-holder">
+                    <img class="plant" alt="plant" id="plant13" src="./images/plant13.png" />
+                </div>
+                <div class="plant-holder">
+                    <img class="plant" alt="plant" id="plant14" src="./images/plant14.png" />
+                </div>
+            </div>
+        </div>
+
+        <div id="terrarium">
+            <div class="jar-top"></div>
+            <div class="jar-walls">
+                <div class="jar-glossy-long"></div>
+                <div class="jar-glossy-short"></div>
+            </div>
+            <div class="dirt"></div>
+            <div class="jar-bottom"></div>
+        </div>
+        
+        <script>
+            function dragElement(terrariumElement) {
+                let pos1 = 0,
+                    pos2 = 0,
+                    pos3 = 0,
+                    pos4 = 0;
+                terrariumElement.onpointerdown = pointerDrag;
+
+                // 더블 클릭 시 맨 앞으로.
+                terrariumElement.addEventListener('dblclick', function(event) {
+                        plantToFront(this);
+                });  
+
+                // 식물을 맨 앞으로 가져오는 함수(선택한 식물의 z-index를 3, 나머지를 2로 변경).
+                function plantToFront(e) {
+                    const allPlants = document.querySelectorAll('.plant');
+                    
+                    allPlants.forEach(plant => {
+                        plant.style.zIndex = '2';
+                    });
+
+                    e.style.zIndex = '3';
+                }
+
+                function pointerDrag(e) {
+                    e.preventDefault();
+                    console.log(e);
+                    pos3 = e.clientX;
+                    pos4 = e.clientY;
+                    document.onpointermove = elementDrag;
+                    document.onpointerup = stopElementDrag;
+
+                    // 드래그 시 맨 앞으로.
+                    plantToFront(terrariumElement);
+                }
+
+                function elementDrag(e) {
+                    pos1 = pos3 - e.clientX;
+                    pos2 = pos4 - e.clientY;
+                    pos3 = e.clientX;
+                    pos4 = e.clientY;
+                    console.log(pos1, pos2, pos3, pos4);
+                    terrariumElement.style.top = terrariumElement.offsetTop - pos2 + 'px';
+                    terrariumElement.style.left = terrariumElement.offsetLeft - pos1 + 'px';
+                }
+
+                function stopElementDrag() {
+                    document.onpointerup = null;
+                    document.onpointermove = null;
+                }
+           }
+
+            const plants = document.querySelectorAll('.plant');
+            plants.forEach(dragElement);
+        </script>
+    </body>
+</html>
