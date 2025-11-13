@@ -25,7 +25,6 @@ body {
 .container {
     max-width: 350px;
     margin: 30px auto;
-    padding: 20px;
     border-radius: 12px;
     box-sizing: border-box;
 }
@@ -81,11 +80,11 @@ input[type="text"] {
     box-sizing: border-box;
 }
 
-button {
+.search-btn {
     text-align: center;
-    width: 18%;
     height: 38px;
-    margin-left: 41%;
+    margin-left: 43%;
+    padding: 5px;
     background-color: #007bff;
     color: white;
     font-size: 16px;
@@ -94,27 +93,38 @@ button {
     border-radius: 10px;
     cursor: pointer;
 }
+
 button:hover {
     background-color: #0056b3;
 }
 
-.result {
-    display: none;
+p {
+    text-align: center;
     margin-top: 20px;
-    text-align: left;
-}
-.result-container p {
-    font-size: 16px;
-    line-height: 1.6;
-    margin-bottom: 12px;
+    font-size: 20px;
+    color: #222;
+    font-weight: 500;
+    line-height: 1.4;
 }
 
-.loading, .errors {
-    display: none;
+.result-container p:first-child {
+    font-size: 18px;
+    font-weight: 500;
+    margin-top: 25px;
+}
+
+.clear-btn {
+    display: block;
+    margin: 30px auto 0 auto;
+    padding: 12px 30px;
+    background-color: #007bff;
+    color: white;
+    font-size: 17px;
+    font-weight: 600;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
     text-align: center;
-    padding: 20px;
-    font-size: 16px;
-    color: #888;
 }
 
 /* Dark 모드*/

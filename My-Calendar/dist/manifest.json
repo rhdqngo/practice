@@ -1,0 +1,19 @@
+{
+  "manifest_version": 3,
+  "name": "My Calendar",
+  "version": "1.0.0",
+  "description": "Shows upcoming events from your Google Calendar.",
+  "permissions": [
+    "identity"
+  ],
+  "action": {
+    "default_popup": "index.html",
+    "default_title": "View Calendar Events"
+  },
+  "oauth2": {
+    "client_id": "859525719771-8tbtl20hk4dtvhvt3d8ulgs3qpa62p4k.apps.googleusercontent.com",
+    "scopes": [
+      "https://www.googleapis.com/auth/calendar.events.readonly"
+    ]
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "name": "My-Calendar",
+  "version": "1.0.0",
+  "description": "A Chrome extension to display Google Calendar events.",
+  "main": "src/index.js",
+  "scripts": {
+    "build": "esbuild src/index.js --bundle --outfile=dist/index.js --platform=browser",
+    "watch": "esbuild src/index.js --bundle --outfile=dist/index.js --platform=browser --watch"
+  },
+  "keywords": [
+    "chrome-extension",
+    "google-calendar"
+  ],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "esbuild": "^0.20.0"
+  }
+}
